@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教育技术专业知识测试</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        // 测试题目数据
+        const questions = [
+            {
+                id: 1,
+                title: "基于图 1，当前，我校教育技术专业四年制本科学生，培养目标的核心是：",
+                options: [
+                    "能够找到工作。",
+                    "能够不断自主学习提升自己。更好地区别数字真伪。例如区别如下网盘分享链接https://www.alipan.com/s/g1LgXLG2n1K中的“真假难辨这次世界真被颠覆了sora人工智能AI视频AI测评AI短片AIGCAI教学soraopenai.mp4”视频文件。思辨好老师/好学生之间的互动：教育不是面向驯服，而是面向唤醒、面向协同正确的方向...。https://www.zhihu.com/zvideo/1970651415312569123。思辨如下关于对错与法律道德的视频：https://www.zhihu.com/zvideo/1967890112978347845、https://www.zhihu.com/zvideo/1958125997791638854、https://www.zhihu.com/zvideo/1965076074997198922。思辨如下关于思维语言的平台对等性视频：https://www.zhihu.com/zvideo/1866876336682971136。思辨如下关于思维语言的“简单宽泛与复杂严谨的迭代统一”：https://www.zhihu.com/zvideo/1789315853210247169。",
+                    "能够走入社会。",
+                    "能够胜任中学信息科技学科课程的骨干教师。"
+                ],
+                correctAnswer: 1, // 索引从0开始
+                explanation: "我校“教育技术专业培养方案”明确规定。https://www.alipan.com/s/dhknGRnDR9L（因为时间物力的限制，不断完善之中…）"
+            },
+            {
+                id: 2,
+                title: "教育技术专业的当前数字人工智能时代背景：教育学一级学科中，最具时代重要性的二级学科、专业。",
+                options: [
+                    "国外重视、国内尚不重视。",
+                    "国外尚不重视、国内重视。",
+                    "国外尚不重视、国内尚不重视。"
+                ],
+                correctAnswer: 1,
+                explanation: "二十大强调“推进教育数字化……”。《人民日报-人民网》文章提出“坚持系统观念，守正创新……”。《中国社会科学网》发布文章“被人工智能激活的哲学……”。国家网信办印发的《提升全民数字素养与技能行动纲要》要求“注重培养数字意识、计算思维……”。中央经济工作会议提出“广泛应用数智技术……”。教育部《义务教育信息科技课程标准（2022年版）》，指出“信息科技课程要培养的核心素养，主要包括信息意识、计算思维……”。中国计算机学会CCF提出基于C++这些计算机思维语言“培养中学生的计算思维能力……”。《教育强国建设规划纲要（2024-2035年）》要求“实施基础学科和交叉学科突破计划……支持国际STEM……制定完善师生数字素养标准……打造人工智能教育大模型……”，等等。"
+            },
+            {
+                id: 3,
+                title: "如下的教育技术定义中，您觉得哪个最具备当前数字人工智能的工程涵义。",
+                options: [
+                    "AECT1994年定义：教学技术是为了促进学习，对有关的过程和资源进行设计、开发、利用、管理和评价的理论与实践。",
+                    "AECT2005定义：教育技术是指通过创建、运用和管理适当的技术过程和资源来促进学习和提升绩效的研究和符合职业道德规范的实践。",
+                    "教育技术（Educational Technology）是指通过理论与实践的方式，系统地设计、开发、运用、管理与评价教学资源和学习过程，以促进更有效的学习。它融合了教育学、心理学、信息技术等多个学科的知识，旨在优化教学效果和学习体验。",
+                    "教育技术就是教育中的技术运用。"
+                ],
+                correctAnswer: 0,
+                explanation: "https://www.alipan.com/s/dhknGRnDR9L（因为时间物力的限制，不断完善之中…）"
+            },
+            {
+                id: 4,
+                title: "教育技术专业被认为教育+计算机的交叉学科专业。您认为如下哪个是最好的解释：",
+                options: [
+                    "教育理论、计算机应用技术互为统一、互为促进、促进世界迭代向前发展。教育技术在教育领域，注重教育基础原理/教育应用原理的全面层次贯通。对于计算机基础原理/计算机应用原理，则面向计算机应用原理。计算机则注重计算机基础原理计算机应用原理的全面层次贯通。对于教育基础原理/教育应用原理，则面向教育应用原理。",
+                    "教育技术既可面向教育教学平台工程（面向计算机语言应用编程，建议选用VS开发工具/C#语言。就如开发一个淘宝平台）（建议男生），也可面向教育教学内容工程（面向信息科技教育教学的媒体内容，建议选用word开发字符文档/PS开发图像/PPT开发视频/PR剪辑视频/PPT开发2D SVG/Maya开发3D X3D，就如淘宝平台店铺）（建议女生）。",
+                    "教育理论验证计算机应用技术。",
+                    "教育理论指导计算机技术。",
+                    "基础教育的信息学奥赛。"
+                ],
+                correctAnswer: 1,
+                explanation: "https://www.alipan.com/s/dhknGRnDR9L（因为时间物力的限制，不断完善之中…）"
+            },
+            {
+                id: 5,
+                title: "基于图 3，您认为如下哪个是即时教学互动、教学过程管理的较好工具。",
+                options: [
+                    "QQ",
+                    "腾讯会议",
+                    "微信",
+                    "钉钉"
+                ],
+                correctAnswer: 3,
+                explanation: "https://www.alipan.com/s/dhknGRnDR9L（因为时间物力的限制，不断完善之中…）"
+            },
+            {
+                id: 6,
+                title: "基于图 4，Edge如何实现中英（Prompt）互译功能。进一步Edge如何实现视觉听觉互补的中英（Prompt）大声朗读功能。Edge如何通过内置的“集锦”功能，不同的Edge登录同一个账号，就可当前设备的Edge的“集锦”中，找到已经随时随地随设备Edge自动同步的URL，而无须背诵记忆URL。Edge如何实现网页放缩。",
+                options: [
+                    "Edge中安装中英翻译扩展。Edge内置了中英朗读功能。Edge内置了“集锦”功能。Edge内置了按住Ctrl键滚动鼠标的网页放缩功能。",
+                    "Edge中内置朗读功能。Edge内置了“集锦”功能。Edge内置了按住Ctrl键滚动鼠标的网页放缩功能。",
+                    "Edge只能朗读英文。Edge内置了“集锦”功能。Edge内置了按住Ctrl键滚动鼠标的网页放缩功能。",
+                    "Edge可以朗读中英。Edge内置了“集锦”功能。Edge内置了按住Ctrl键滚动鼠标的网页放缩功能。"
+                ],
+                correctAnswer: 0,
+                explanation: "https://www.alipan.com/s/dhknGRnDR9L（因为时间物力的限制，不断完善之中…）"
+            },
+            {
+                id: 7,
+                title: "基于图 5，您认为如下哪个是免费发布网站的较好平台网站。",
+                options: [
+                    "阿里云盘。",
+                    "百度网盘",
+                    "Onedrive",
+                    "Github"
+                ],
+                correctAnswer: 3,
+                explanation: "https://www.alipan.com/s/dhknGRnDR9L（因为时间物力的限制，不断完善之中…）"
+            },
+            {
+                id: 8,
+                title: "基于图 6，您认为如下哪个是免费的较好网盘云盘。",
+                options: [
+                    "阿里云盘。",
+                    "百度网盘。",
+                    "Onedrive。",
+                    "Github。"
+                ],
+                correctAnswer: 0,
+                explanation: "https://www.alipan.com/s/dhknGRnDR9L（因为时间物力的限制，不断完善之中…）"
+            },
+            {
+                id: 9,
+                title: "基于图 7，您认为如下哪个是免费的知识发表网站。",
+                options: [
+                    "知乎",
+                    "微信朋友圈",
+                    "钉钉我的动态",
+                    "淘宝"
+                ],
+                correctAnswer: 0,
+                explanation: "https://www.alipan.com/s/dhknGRnDR9L（因为时间物力的限制，不断完善之中…）"
+            },
+            {
+                id: 10,
+                title: "基于图 8（https://localhost:5001/webCourse/common/initial.html?text=1676365271966），您认为如下哪个与教育技术主线（线性辅助←树体主导→网状辅助的主线）是最不相关的。",
+                options: [
+                    "“教育大模型”也即“教育大语言模型”也即“教育大思维语言模型”也即“教育（数字）思维语言的人物对象”也即“教育（数字）思维语言整体框架的时间空间的人物对象”，也即“教育（数字）思维语言整体框架的开始/中途/结束的客户端/互动/服务端的（初创方/他创方/自创方）人物对象（内部内容方法/外部内容方法）的四层平台的五层MVC（线性-树体-网状的结构/关系/模式/架构）的封装继承多态的字典驱动文档的迭代直至需求粒度……”",
+                    "经典哲学,宏观层次认为：整体世界的人物对象极其繁多，建议一分为二成为“人脑的主观意识的思维语言的人物对象（内部内容方法/外部内容方法）、自然界的客观存在的思维语言的人物对象（内部内容方法/外部内容方法）”。迭代直至需求粒度……(“字典”中、“字典驱动的文档”中）人物对象的内容方法的思维语言代码：保存成为外存文件，运行成为内存信号。进而可以用作人主导的辅助工具【人←（互为统一）→人主导的辅助工具】【人脑继承利用工具的主观思维语言是追求从众的，人脑创新研发工具的主观思维语言是追求众从的】【真理是绝对性与相对性的统一、确定性与概率性的统一、更多对与更少错的统一、简单有序与复杂混沌的统一……】",
+                    "【1】“人脑的（字符媒体/多媒体的本质）中英Prompt等等思维语言的主观人物对象”←人机统一→“计算机CPU的（0/1的本质）数字/ASM/C++/C#等等数字思维语言的主观人物对象”←主观客观统一→“自然界的（第一性原理的本质）物理化学中英Prompt思维语言的客观人物对象”。迭代直至需求粒度……【2】上述的“字符媒体/多媒体”，又是“视媒主导（字符媒体主导/多媒体的图像辅助/多媒体的视频辅助/多媒体的2D辅助/多媒体的3D辅助）/多媒体的听媒辅助/多媒体的触媒辅助/多媒体的嗅媒辅助/多媒体的味媒辅助”。",
+                    "教育技术的知识是一个网，纷繁复杂、杂乱无章。"
+                ],
+                correctAnswer: 3,
+                explanation: "https://www.alipan.com/s/dhknGRnDR9L（因为时间物力的限制，不断完善之中…）"
+            }
+        ];
+    </script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen font-sans text-gray-800">
+    <!-- 顶部导航 -->
+    <header class="bg-white shadow-md py-4 px-6 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-700 flex items-center">
+                <<i class="fa fa-graduation-cap mr-3 text-blue-500"></</i>
+                教育技术专业知识测试
+            </h1>
+            <div class="flex items-center space-x-4">
+                <div id="progress-container" class="hidden md:flex items-center">
+                    <span class="text-sm text-gray-600 mr-2">进度：</span>
+                    <div class="w-48 h-2 bg-gray-200 rounded-full overflow-hidden">
+                        <div id="progress-bar" class="h-full bg-blue-500 rounded-full transition-all duration-500" style="width: 10%"></div>
+                    </div>
+                    <span id="progress-text" class="text-sm text-gray-600 ml-2">1/10题</span>
+                </div>
+                <div id="score-display" class="hidden items-center bg-blue-100 px-3 py-1 rounded-full text-blue-800 font-medium">
+                    <<i class="fa fa-star mr-1 text-yellow-500"></</i>
+                    <span>得分：0分</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区 -->
+    <main class="container mx-auto py-8 px-4 md:px-6">
+        <!-- 测试介绍卡片 -->
+        <div id="intro-card" class="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-8 transform transition-all duration-300 hover:shadow-xl">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">欢迎参加教育技术专业知识测试</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    本测试共10题，每题10分，满分100分。请依次作答，完成当前题目后才能进入下一题。全部完成后将显示您的总分、正确答案及详细解析。
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-blue-50 rounded-lg p-4 text-center">
+                    <<i class="fa fa-question-circle text-3xl text-blue-500 mb-2"></</i>
+                    <h3 class="font-semibold text-gray-800 mb-1">10道题目</h3>
+                    <p class="text-sm text-gray-600">覆盖教育技术核心知识</p>
+                </div>
+                <div class="bg-green-50 rounded-lg p-4 text-center">
+                    <<i class="fa fa-clock-o text-3xl text-green-500 mb-2"></</i>
+                    <h3 class="font-semibold text-gray-800 mb-1">自主答题</h3>
+                    <p class="text-sm text-gray-600">按顺序作答，即时反馈</p>
+                </div>
+                <div class="bg-purple-50 rounded-lg p-4 text-center">
+                    <<i class="fa fa-line-chart text-3xl text-purple-500 mb-2"></</i>
+                    <h3 class="font-semibold text-gray-800 mb-1">详细解析</h3>
+                    <p class="text-sm text-gray-600">完成后查看答案与解析</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <button id="start-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-md transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                    开始测试 <<i class="fa fa-arrow-right ml-2"></</i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 题目卡片 (默认隐藏) -->
+        <div id="question-card" class="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-8 transform transition-all duration-300 hover:shadow-xl hidden">
+            <div class="flex items-center mb-6">
+                <span id="question-number" class="bg-blue-100 text-blue-800 font-bold py-1 px-4 rounded-full mr-3">第1题</span>
+                <h2 id="question-title" class="text-xl md:text-2xl font-bold text-gray-800"></h2>
+            </div>
+            <div id="options-container" class="space-y-3 mb-8">
+                <!-- 选项将动态生成 -->
+            </div>
+            <div class="flex justify-between items-center">
+                <button id="prev-btn" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-6 rounded-full shadow transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                    <<i class="fa fa-arrow-left mr-2"></</i> 上一题
+                </button>
+                <button id="next-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full shadow-md transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" disabled>
+                    下一题 <<i class="fa fa-arrow-right ml-2"></</i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 结果卡片 (默认隐藏) -->
+        <div id="result-card" class="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-8 transform transition-all duration-300 hover:shadow-xl hidden">
+            <div class="text-center mb-8">
+                <div id="score-circle" class="inline-flex items-center justify-center w-40 h-40 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold text-4xl md:text-5xl mb-4 shadow-lg">
+                    0分
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">测试完成！</h2>
+                <p id="result-comment" class="text-gray-600 max-w-2xl mx-auto text-lg"></p>
+            </div>
+
+            <!-- 答案解析区域 -->
+            <div class="mt-10">
+                <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                    <<i class="fa fa-book text-blue-500 mr-2"></</i> 答案与解析
+                </h3>
+                <div id="explanations-container" class="space-y-8">
+                    <!-- 解析将动态生成 -->
+                </div>
+            </div>
+
+            <div class="text-center mt-10">
+                <button id="restart-btn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-md transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+                    重新测试 <<i class="fa fa-refresh ml-2"></</i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8 px-6">
+        <div class="container mx-auto text-center">
+            <p class="mb-4">教育技术专业知识测试系统 &copy; 2024</p>
+            <p class="text-gray-400 text-sm">
+                基于江西师范大学教育技术专业培养方案设计 | 题目来源：教育技术专业课程资料
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 全局状态
+        let currentQuestionIndex = 0;
+        let userAnswers = new Array(questions.length).fill(null);
+        let score = 0;
+
+        // DOM 元素
+        const introCard = document.getElementById('intro-card');
+        const questionCard = document.getElementById('question-card');
+        const resultCard = document.getElementById('result-card');
+        const startBtn = document.getElementById('start-btn');
+        const restartBtn = document.getElementById('restart-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const questionNumber = document.getElementById('question-number');
+        const questionTitle = document.getElementById('question-title');
+        const optionsContainer = document.getElementById('options-container');
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        const scoreDisplay = document.getElementById('score-display');
+        const scoreCircle = document.getElementById('score-circle');
+        const resultComment = document.getElementById('result-comment');
+        const explanationsContainer = document.getElementById('explanations-container');
+
+        // 初始化测试
+        function initTest() {
+            currentQuestionIndex = 0;
+            userAnswers = new Array(questions.length).fill(null);
+            score = 0;
+            
+            // 更新进度
+            updateProgress();
+            
+            // 显示第一题
+            showQuestion(currentQuestionIndex);
+            
+            // 切换卡片显示
+            introCard.classList.add('hidden');
+            questionCard.classList.remove('hidden');
+            resultCard.classList.add('hidden');
+            scoreDisplay.classList.remove('hidden');
+        }
+
+        // 显示特定题目
+        function showQuestion(index) {
+            const question = questions[index];
+            
+            // 更新题目信息
+            questionNumber.textContent = `第${question.id}题`;
+            questionTitle.textContent = question.title;
+            
+            // 清空选项容器
+            optionsContainer.innerHTML = '';
+            
+            // 生成选项
+            question.options.forEach((option, optionIndex) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = `option flex items-start p-4 rounded-lg border ${userAnswers[index] === optionIndex ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-blue-300 hover:bg-gray-50'} transition-all duration-200 cursor-pointer`;
+                optionElement.dataset.index = optionIndex;
+                
+                // 选项字母 (A, B, C, D...)
+                const optionLetter = String.fromCharCode(65 + optionIndex);
+                
+                optionElement.innerHTML = `
+                    <div class="option-radio mr-3 mt-1 flex-shrink-0">
+                        <div class="w-5 h-5 rounded-full border-2 ${userAnswers[index] === optionIndex ? 'border-blue-500 bg-blue-500' : 'border-gray-300'} flex items-center justify-center">
+                            ${userAnswers[index] === optionIndex ? '<<i class="fa fa-check text-white text-xs"></</i>' : ''}
+                        </div>
+                    </div>
+                    <div class="option-content">
+                        <span class="font-medium mr-2">${optionLetter}.</span>
+                        <span class="text-gray-700">${option}</span>
+                    </div>
+                `;
+                
+                // 选项点击事件
+                optionElement.addEventListener('click', () => {
+                    // 记录答案
+                    userAnswers[index] = optionIndex;
+                    
+                    // 更新选项样式
+                    document.querySelectorAll('.option').forEach(opt => {
+                        opt.classList.remove('border-blue-500', 'bg-blue-50');
+                        opt.classList.add('border-gray-200');
+                        opt.querySelector('.option-radio div').classList.remove('border-blue-500', 'bg-blue-500');
+                        opt.querySelector('.option-radio div').classList.add('border-gray-300');
+                        opt.querySelector('.option-radio div i').remove();
+                    });
+                    
+                    optionElement.classList.remove('border-gray-200');
+                    optionElement.classList.add('border-blue-500', 'bg-blue-50');
+                    optionElement.querySelector('.option-radio div').classList.remove('border-gray-300');
+                    optionElement.querySelector('.option-radio div').classList.add('border-blue-500', 'bg-blue-500');
+                    optionElement.querySelector('.option-radio div').innerHTML = '<<i class="fa fa-check text-white text-xs"></</i>';
+                    
+                    // 启用下一题按钮
+                    nextBtn.disabled = false;
+                });
+                
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            // 更新按钮状态
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = userAnswers[index] === null;
+            
+            // 如果是最后一题，更改按钮文本
+            if (index === questions.length - 1) {
+                nextBtn.innerHTML = '提交测试 <<i class="fa fa-check ml-2"></</i>';
+            } else {
+                nextBtn.innerHTML = '下一题 <<i class="fa fa-arrow-right ml-2"></</i>';
+            }
+        }
+
+        // 更新进度条
+        function updateProgress() {
+            const progressPercentage = ((currentQuestionIndex + 1) / questions.length) * 100;
+            progressBar.style.width = `${progressPercentage}%`;
+            progressText.textContent = `${currentQuestionIndex + 1}/${questions.length}题`;
+        }
+
+        // 计算得分并显示结果
+        function calculateScore() {
+            score = 0;
+            userAnswers.forEach((answer, index) => {
+                if (answer === questions[index].correctAnswer) {
+                    score += 10;
+                }
+            });
+            
+            // 更新结果显示
+            scoreCircle.textContent = `${score}分`;
+            
+            // 根据分数显示不同的评语
+            let comment = '';
+            if (score >= 90) {
+                comment = '优秀！您对教育技术专业知识掌握得非常扎实，继续保持！';
+                scoreCircle.classList.remove('from-blue-500', 'from-yellow-500', 'from-orange-500', 'from-red-500');
+                scoreCircle.classList.add('from-green-500');
+                scoreCircle.classList.remove('to-indigo-600', 'to-amber-600', 'to-red-600', 'to-red-700');
+                scoreCircle.classList.add('to-teal-600');
+            } else if (score >= 70) {
+                comment = '良好！您对教育技术专业知识有较好的掌握，继续努力！';
+                scoreCircle.classList.remove('from-green-500', 'from-yellow-500', 'from-orange-500', 'from-red-500');
+                scoreCircle.classList.add('from-blue-500');
+                scoreCircle.classList.remove('to-teal-600', 'to-amber-600', 'to-red-600', 'to-red-700');
+                scoreCircle.classList.add('to-indigo-600');
+            } else if (score >= 60) {
+                comment = '及格！您基本掌握了教育技术专业的核心知识，还需要加强学习。';
+                scoreCircle.classList.remove('from-green-500', 'from-blue-500', 'from-orange-500', 'from-red-500');
+                scoreCircle.classList.add('from-yellow-500');
+                scoreCircle.classList.remove('to-teal-600', 'to-indigo-600', 'to-red-600', 'to-red-700');
+                scoreCircle.classList.add('to-amber-600');
+            } else {
+                comment = '需要努力！建议您系统学习教育技术专业知识，加强练习。';
+                scoreCircle.classList.remove('from-green-500', 'from-blue-500', 'from-yellow-500', 'from-orange-500');
+                scoreCircle.classList.add('from-red-500');
+                scoreCircle.classList.remove('to-teal-600', 'to-indigo-600', 'to-amber-600', 'to-red-600');
+                scoreCircle.classList.add('to-red-700');
+            }
+            resultComment.textContent = comment;
+            
+            // 生成答案解析
+            explanationsContainer.innerHTML = '';
+            questions.forEach((question, index) => {
+                const isCorrect = userAnswers[index] === question.correctAnswer;
+                const correctOptionLetter = String.fromCharCode(65 + question.correctAnswer);
+                
+                const explanationElement = document.createElement('div');
+                explanationElement.className = 'explanation p-5 rounded-lg border';
+                explanationElement.classList.add(isCorrect ? 'border-green-200 bg-green-50' : 'border-red-200 bg-red-50');
+                
+                explanationElement.innerHTML = `
+                    <div class="flex justify-between items-start mb-3">
+                        <h4 class="font-bold text-lg text-gray-800">第${question.id}题 ${isCorrect ? '<span class="text-green-600 ml-2"><<i class="fa fa-check"></</i> 回答正确</span>' : '<span class="text-red-600 ml-2"><<i class="fa fa-times"></</i> 回答错误</span>'}</h4>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm font-medium">${isCorrect ? '10分' : '0分'}</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">${question.title}</p>
+                    <div class="mb-4">
+                        <p class="text-sm font-medium text-gray-600 mb-2">正确答案：<span class="text-green-600 font-bold">${correctOptionLetter}</span></p>
+                        <p class="text-sm text-gray-700">${question.options[question.correctAnswer]}</p>
+                    </div>
+                    ${userAnswers[index] !== null && !isCorrect ? `
+                        <div class="mb-4">
+                            <p class="text-sm font-medium text-gray-600 mb-2">您的答案：<span class="text-red-600 font-bold">${String.fromCharCode(65 + userAnswers[index])}</span></p>
+                            <p class="text-sm text-gray-700">${question.options[userAnswers[index]]}</p>
+                        </div>
+                    ` : ''}
+                    <div class="pt-3 border-t border-gray-200">
+                        <p class="text-sm font-medium text-gray-600 mb-1">解析：</p>
+                        <p class="text-sm text-gray-700">${question.explanation}</p>
+                    </div>
+                `;
+                
+                explanationsContainer.appendChild(explanationElement);
+            });
+            
+            // 切换卡片显示
+            questionCard.classList.add('hidden');
+            resultCard.classList.remove('hidden');
+        }
+
+        // 事件监听
+        startBtn.addEventListener('click', initTest);
+        restartBtn.addEventListener('click', initTest);
+        
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion(currentQuestionIndex);
+                updateProgress();
+            }
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            if (currentQuestionIndex === questions.length - 1) {
+                // 最后一题，提交测试
+                calculateScore();
+            } else {
+                // 下一题
+                currentQuestionIndex++;
+                showQuestion(currentQuestionIndex);
+                updateProgress();
+            }
+        });
+
+        // 响应式调整
+        window.addEventListener('resize', () => {
+            if (window.innerWidth < 768) {
+                // 移动端优化选项显示
+                document.querySelectorAll('.option').forEach(option => {
+                    option.classList.add('flex-col');
+                    option.classList.remove('flex', 'items-start');
+                });
+            } else {
+                document.querySelectorAll('.option').forEach(option => {
+                    option.classList.add('flex', 'items-start');
+                    option.classList.remove('flex-col');
+                });
+            }
+        });
+
+        // 初始化时触发一次响应式调整
+        window.dispatchEvent(new Event('resize'));
+    </script>
+</body>
+</html>
+# 将所有新增/修改的文件加入暂存区
+git add .
+# 提交文件并添加说明（引号内可替换为自己的描述，比如“上传网站静态文件”）
+git commit -m "add project files"
+# 推送到GitHub远程仓库
+git push
