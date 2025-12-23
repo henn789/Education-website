@@ -1,12 +1,412 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>教育技术专业知识测试</title>
-  <meta http-equiv="refresh" content="0; url=/test.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>儿童拼音认知小课堂 - 精美网页版</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "微软雅黑", "幼圆", Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 20px 0;
+        }
+
+        /* 标题样式 */
+        .title-box {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .title-box h1 {
+            color: #ff6b6b;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .title-box p {
+            color: #555;
+            font-size: 1.2rem;
+        }
+
+        /* 主容器样式 */
+        .main-container {
+            background: rgba(255, 255, 255, 0.95);
+            width: 90%;
+            max-width: 800px;
+            border-radius: 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        /* 选项卡样式 */
+        .tabs {
+            display: flex;
+            background: #ff9a9e;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 18px 0;
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background: #ff6b6b;
+            border-bottom: 4px solid #ff3838;
+        }
+
+        .tab-btn:hover {
+            background: #ff7f7f;
+        }
+
+        /* 内容区域样式 */
+        .tab-content {
+            padding: 30px;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 拼音表样式 */
+        .pinyin-table {
+            width: 100%;
+            text-align: center;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .pinyin-table th {
+            background: #f8b500;
+            color: white;
+            padding: 12px;
+            font-size: 1.2rem;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .pinyin-table td {
+            padding: 15px;
+            font-size: 1.5rem;
+            color: #333;
+            border-bottom: 1px solid #eee;
+        }
+
+        .pinyin-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* 游戏区域样式 */
+        .game-box {
+            text-align: center;
+            padding: 20px;
+            background: #fef5f5;
+            border-radius: 15px;
+            margin: 10px 0;
+        }
+
+        .game-question {
+            font-size: 1.3rem;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .answer-input {
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            border: 2px solid #ff9a9e;
+            border-radius: 30px;
+            outline: none;
+            width: 200px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .submit-btn {
+            padding: 12px 30px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #ff3838;
+            transform: scale(1.05);
+        }
+
+        .result-tip {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .correct {
+            color: #2ecc71;
+        }
+
+        .wrong {
+            color: #e74c3c;
+        }
+
+        /* 底部提示样式 */
+        .tips {
+            text-align: center;
+            color: #666;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+    </style>
 </head>
 <body>
-  <p>正在跳转到测试页面—如果没有自动跳转，请 <a href="/test.html">点击这里</a>.</p>
+    <!-- 标题区域 -->
+    <div class="title-box">
+        <h1>🍎 儿童拼音认知小课堂 🍎</h1>
+        <p>适合3-6岁宝贝的拼音学习乐园</p>
+    </div>
+
+    <!-- 主内容容器 -->
+    <div class="main-container">
+        <!-- 选项卡 -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('shengmu')">声母学习</button>
+            <button class="tab-btn" onclick="switchTab('yunmu')">韵母学习</button>
+            <button class="tab-btn" onclick="switchTab('game')">拼音小游戏</button>
+        </div>
+
+        <!-- 声母内容 -->
+        <div id="shengmu" class="tab-content active">
+            <h2 style="text-align: center; color: #ff6b6b; margin-bottom: 20px;">🎈 声母表（23个）</h2>
+            <table class="pinyin-table">
+                <tr>
+                    <th>第一组</th>
+                    <td>b</td>
+                    <td>p</td>
+                    <td>m</td>
+                    <td>f</td>
+                    <td>d</td>
+                    <td>t</td>
+                    <td>n</td>
+                    <td>l</td>
+                </tr>
+                <tr>
+                    <th>第二组</th>
+                    <td>g</td>
+                    <td>k</td>
+                    <td>h</td>
+                    <td>&nbsp;</td>
+                    <td>j</td>
+                    <td>q</td>
+                    <td>x</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <th>第三组</th>
+                    <td>zh</td>
+                    <td>ch</td>
+                    <td>sh</td>
+                    <td>r</td>
+                    <td>z</td>
+                    <td>c</td>
+                    <td>s</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <th>第四组</th>
+                    <td>y</td>
+                    <td>w</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <p class="tips">温馨提示：跟着爸爸妈妈一起大声朗读哦～</p>
+        </div>
+
+        <!-- 韵母内容 -->
+        <div id="yunmu" class="tab-content">
+            <h2 style="text-align: center; color: #ff6b6b; margin-bottom: 20px;">🌸 韵母表（24个）</h2>
+            <table class="pinyin-table">
+                <tr>
+                    <th>单韵母</th>
+                    <td>a</td>
+                    <td>o</td>
+                    <td>e</td>
+                    <td>i</td>
+                    <td>u</td>
+                    <td>ü</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <th>复韵母</th>
+                    <td>ai</td>
+                    <td>ei</td>
+                    <td>ui</td>
+                    <td>ao</td>
+                    <td>ou</td>
+                    <td>iu</td>
+                    <td>ie</td>
+                    <td>üe er</td>
+                </tr>
+                <tr>
+                    <th>鼻韵母（前）</th>
+                    <td>an</td>
+                    <td>en</td>
+                    <td>in</td>
+                    <td>un</td>
+                    <td>ün</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <th>鼻韵母（后）</th>
+                    <td>ang</td>
+                    <td>eng</td>
+                    <td>ing</td>
+                    <td>ong</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <p class="tips">温馨提示：跟着爸爸妈妈一起大声朗读哦～</p>
+        </div>
+
+        <!-- 游戏内容 -->
+        <div id="game" class="tab-content">
+            <h2 style="text-align: center; color: #ff6b6b; margin-bottom: 20px;">🎮 拼音闯关小游戏</h2>
+            <div class="game-box">
+                <div class="game-question" id="question">点击下方按钮获取题目～</div>
+                <input type="text" class="answer-input" id="answer" placeholder="输入你的答案">
+                <button class="submit-btn" onclick="getQuestion()">获取题目</button>
+                <button class="submit-btn" onclick="checkAnswer()" style="margin-left: 10px;">提交答案</button>
+                <div class="result-tip" id="result"></div>
+            </div>
+            <p class="tips">温馨提示：答对会有惊喜哦，加油！</p>
+        </div>
+    </div>
+
+    <script>
+        // 全局变量存储当前题目信息
+        let currentQues = {
+            question: "",
+            correctAnswer: ""
+        };
+
+        // 切换选项卡
+        function switchTab(tabId) {
+            // 隐藏所有内容
+            const allContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < allContents.length; i++) {
+                allContents[i].classList.remove("active");
+            }
+            // 移除所有按钮激活状态
+            const allBtns = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < allBtns.length; i++) {
+                allBtns[i].classList.remove("active");
+            }
+            // 激活当前选项卡
+            document.getElementById(tabId).classList.add("active");
+            event.target.classList.add("active");
+        }
+
+        // 生成随机题目
+        function getQuestion() {
+            const questionList = [
+                { q: "问题1：“爸爸”的第一个拼音是什么？（b/p）", a: "b" },
+                { q: "问题2：“妈妈”的第一个拼音是什么？（m/f）", a: "m" },
+                { q: "问题3：“苹果”的第一个拼音是什么？（p/q）", a: "p" },
+                { q: "问题4：“鹅”的拼音是什么？（e/o）", a: "e" },
+                { q: "问题5：“小兔”的第一个拼音是什么？（t/d）", a: "t" },
+                { q: "问题6：“小鸡”的第一个拼音是什么？（j/x）", a: "j" },
+                { q: "问题7：“花朵”的第一个拼音是什么？（h/h）", a: "h" },
+                { q: "问题8：“大米”的第一个拼音是什么？（d/m）", a: "d" }
+            ];
+
+            // 随机选择一道题
+            const randomIndex = Math.floor(Math.random() * questionList.length);
+            currentQues = questionList[randomIndex];
+
+            // 显示题目
+            document.getElementById("question").innerText = currentQues.question;
+            // 清空答案和结果
+            document.getElementById("answer").value = "";
+            document.getElementById("result").innerText = "";
+            document.getElementById("result").className = "result-tip";
+        }
+
+        // 检查答案
+        function checkAnswer() {
+            const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
+            const resultElement = document.getElementById("result");
+
+            if (!currentQues.question) {
+                resultElement.innerText = "请先点击“获取题目”哦～";
+                resultElement.className = "result-tip wrong";
+                return;
+            }
+
+            if (userAnswer === "") {
+                resultElement.innerText = "请输入答案后再提交～";
+                resultElement.className = "result-tip wrong";
+                return;
+            }
+
+            // 判断对错
+            if (userAnswer === currentQues.correctAnswer) {
+                resultElement.innerText = "👏 太棒啦！回答正确，给你点个赞～";
+                resultElement.className = "result-tip correct";
+            } else {
+                resultElement.innerText = `😜 差一点点哦，正确答案是${currentQues.correctAnswer}～`;
+                resultElement.className = "result-tip wrong";
+            }
+        }
+    </script>
 </body>
 </html>
